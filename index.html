@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinTech Crime Consultancy - Premium Financial Crime Prevention</title>
+    <title>Shirol Consultancy - Advanced Security & Intelligence Solutions</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,17 +21,57 @@
         }
 
         :root {
-            --bg-primary: #0a0e27;
-            --bg-secondary: #141829;
-            --bg-tertiary: #1a1f3a;
+            --bg-primary: #000000;
+            --bg-secondary: #0d1117;
+            --bg-tertiary: #161b22;
             --text-primary: #e8eef7;
             --text-secondary: #a8b4d4;
-            --accent-cyan: #00d9ff;
-            --accent-gold: #ffd700;
-            --accent-gold-light: #ffd700;
-            --border-color: #2a3050;
+            --accent-cyan: #00ff9f;
+            --accent-gold: #ff0080;
+            --accent-gold-light: #ff00ff;
+            --border-color: #1a2332;
             --success: #00ff88;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 2px); }
+            40% { transform: translate(-3px, -2px); }
+            60% { transform: translate(3px, 2px); }
+            80% { transform: translate(3px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        @keyframes scanlines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(10px); }
+        }
+
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        @keyframes matrix-rain {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 159, 0.4), inset 0 0 10px rgba(0, 255, 159, 0.1); }
+            50% { box-shadow: 0 0 30px rgba(0, 255, 159, 0.8), inset 0 0 20px rgba(0, 255, 159, 0.2); }
+        }
+
+        @keyframes digital-flicker {
+            0%, 100% { opacity: 1; }
+            5% { opacity: 0.95; }
+            10% { opacity: 1; }
+            15% { opacity: 0.9; }
         }
 
         html {
@@ -46,7 +86,7 @@
             overflow-x: hidden;
         }
 
-        /* Grid Background Pattern */
+        /* Grid Background Pattern with Matrix Effect */
         body::before {
             content: '';
             position: fixed;
@@ -55,11 +95,12 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(0deg, transparent 24%, rgba(0, 217, 255, 0.05) 25%, rgba(0, 217, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.05) 75%, rgba(0, 217, 255, 0.05) 76%, transparent 77%, transparent),
-                linear-gradient(90deg, transparent 24%, rgba(0, 217, 255, 0.05) 25%, rgba(0, 217, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.05) 75%, rgba(0, 217, 255, 0.05) 76%, transparent 77%, transparent);
+                linear-gradient(0deg, transparent 24%, rgba(0, 255, 159, 0.03) 25%, rgba(0, 255, 159, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 159, 0.03) 75%, rgba(0, 255, 159, 0.03) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(0, 255, 159, 0.03) 25%, rgba(0, 255, 159, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 159, 0.03) 75%, rgba(0, 255, 159, 0.03) 76%, transparent 77%, transparent);
             background-size: 50px 50px;
             pointer-events: none;
             z-index: 0;
+            animation: scanlines 8s linear infinite;
         }
 
         /* Navigation Bar */
@@ -104,6 +145,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             letter-spacing: 2px;
+            animation: digital-flicker 3s infinite, pulse-glow 3s ease-in-out infinite;
         }
 
         .nav-links {
@@ -131,6 +173,7 @@
             height: 2px;
             background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold));
             transition: width 0.3s ease;
+            box-shadow: 0 0 5px var(--accent-cyan);
         }
 
         .nav-links a:hover {
@@ -159,30 +202,39 @@
             position: relative;
             overflow: hidden;
             padding: 2rem;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 255, 159, 0.05) 0%, transparent 50%);
         }
 
         .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 159, 0.05) 0px,
+                rgba(0, 255, 159, 0.05) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            animation: scanlines 4s linear infinite;
+            z-index: 1;
+        }
+
+        .hero::after {
             content: '';
             position: absolute;
             top: -50%;
             right: -20%;
             width: 800px;
             height: 800px;
-            background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 255, 159, 0.15) 0%, transparent 70%);
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite reverse;
+            filter: blur(40px);
         }
 
         @keyframes float {
@@ -196,6 +248,12 @@
             text-align: center;
             max-width: 900px;
             animation: fadeInUp 1s ease-out;
+            background: linear-gradient(135deg, rgba(0, 255, 159, 0.05) 0%, rgba(255, 0, 128, 0.05) 100%);
+            border: 2px solid transparent;
+            border-image: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold)) 1;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 255, 159, 0.2), inset 0 0 30px rgba(0, 255, 159, 0.05);
         }
 
         @keyframes fadeInUp {
@@ -220,16 +278,21 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             letter-spacing: 3px;
+            animation: glitch 4s infinite, digital-flicker 3s infinite;
+            text-shadow: 0 0 20px rgba(0, 255, 159, 0.5), 0 0 40px rgba(255, 0, 128, 0.3);
         }
 
         .hero-subtitle {
             font-size: clamp(1rem, 2vw, 1.2rem);
-            color: var(--text-secondary);
+            color: var(--accent-cyan);
             margin-bottom: 2rem;
             line-height: 1.8;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            animation: typewriter 3s steps(40, end), digital-flicker 4s infinite;
+            text-shadow: 0 0 10px rgba(0, 255, 159, 0.6);
+            font-weight: 600;
         }
 
         .cta-buttons {
@@ -275,24 +338,28 @@
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-cyan));
             color: var(--bg-primary);
             border: 2px solid var(--accent-cyan);
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 159, 0.4), inset 0 0 10px rgba(0, 255, 159, 0.2);
+            position: relative;
         }
 
         .btn-primary:hover {
-            box-shadow: 0 0 40px rgba(0, 217, 255, 0.6);
+            box-shadow: 0 0 40px rgba(0, 255, 159, 0.8), inset 0 0 20px rgba(0, 255, 159, 0.3);
             transform: translateY(-2px);
+            text-shadow: 0 0 10px rgba(0, 255, 159, 0.5);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--accent-gold);
             border: 2px solid var(--accent-gold);
+            box-shadow: 0 0 15px rgba(255, 0, 128, 0.3);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 215, 0, 0.1);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            background: rgba(255, 0, 128, 0.1);
+            box-shadow: 0 0 30px rgba(255, 0, 128, 0.6), inset 0 0 15px rgba(255, 0, 128, 0.2);
             transform: translateY(-2px);
+            color: #ff00ff;
         }
 
         /* Sections */
@@ -874,7 +941,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">FTCC</div>
+            <div class="logo">SHIROL</div>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#process">Process</a></li>
@@ -891,9 +958,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Protecting the Financial Ecosystem</h1>
-            <p class="hero-subtitle">From Onboarding to Governance</p>
-            <p class="hero-subtitle">End-to-end FinTech crime prevention, AML compliance, and risk management for banks, fintechs, NBFCs, and crypto platforms.</p>
+            <h1>> SHIROL CONSULTANCY</h1>
+            <p class="hero-subtitle">[ SECURITY BREACH DETECTED ]</p>
+            <p class="hero-subtitle">System Status: ACTIVE | Threat Level: CRITICAL | Defense Matrix: ENGAGED</p>
             <div class="cta-buttons">
                 <button class="btn btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
                     <i class="fas fa-arrow-right"></i> Explore Services
@@ -1275,7 +1342,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 FinTech Crime Consultancy. All rights reserved. | Premium Financial Crime Prevention & AML Compliance Solutions</p>
+        <p>&copy; 2026 Shirol Consultancy. All rights reserved. | Advanced Security & Intelligence Solutions | [SYSTEM ENCRYPTED]</p>
     </footer>
 
     <script>
