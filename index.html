@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTech Crime Consultancy - Premium Financial Crime Prevention</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #141829;
+            --bg-tertiary: #1a1f3a;
+            --text-primary: #e8eef7;
+            --text-secondary: #a8b4d4;
+            --accent-cyan: #00d9ff;
+            --accent-gold: #ffd700;
+            --accent-gold-light: #ffd700;
+            --border-color: #2a3050;
+            --success: #00ff88;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Grid Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(0deg, transparent 24%, rgba(0, 217, 255, 0.05) 25%, rgba(0, 217, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.05) 75%, rgba(0, 217, 255, 0.05) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(0, 217, 255, 0.05) 25%, rgba(0, 217, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.05) 75%, rgba(0, 217, 255, 0.05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(0, 217, 255, 0.03) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-cyan);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-gold) 50%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 3px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-cyan));
+            color: var(--bg-primary);
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+        section:nth-child(6) { animation-delay: 0.5s; }
+        section:nth-child(7) { animation-delay: 0.6s; }
+        section:nth-child(8) { animation-delay: 0.7s; }
+
+        section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+            letter-spacing: 2px;
+        }
+
+        section h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        /* Services Section */
+        .services {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.03) 0%, rgba(255, 215, 0, 0.02) 100%);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.15);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        .service-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-deliverables {
+            background: rgba(0, 217, 255, 0.08);
+            border-left: 3px solid var(--accent-cyan);
+            padding: 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .service-card:hover .service-deliverables {
+            max-height: 200px;
+            color: var(--accent-cyan);
+        }
+
+        /* Process Flow Section */
+        .process-flow {
+            background: rgba(0, 217, 255, 0.02);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+        }
+
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 1024px) {
+            .flow-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+        }
+
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -70px;
+            top: 30px;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+        }
+
+        .flow-step:last-child::after {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .flow-step:nth-child(5n)::after {
+                display: none;
+            }
+            .flow-step:nth-child(5n-1)::after {
+                right: -70px;
+            }
+        }
+
+        .flow-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bg-primary);
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.4);
+        }
+
+        .flow-label {
+            font-weight: 600;
+            text-align: center;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        /* Technologies Section */
+        .technologies {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.03) 0%, rgba(0, 217, 255, 0.03) 100%);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+        }
+
+        .tech-categories {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-category {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .tech-category h4 {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .tech-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .tech-chip {
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tech-chip:hover {
+            background: rgba(0, 217, 255, 0.2);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 217, 255, 0.2);
+        }
+
+        /* Why Us Section */
+        .why-us {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.02) 0%, rgba(255, 215, 0, 0.02) 100%);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+        }
+
+        .benefit-card:hover::after {
+            opacity: 1;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .benefit-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Risk Categories Section */
+        .risk-categories {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.03) 0%, rgba(0, 217, 255, 0.03) 100%);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+        }
+
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .risk-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .risk-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold));
+            transition: left 0.3s ease;
+        }
+
+        .risk-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 217, 255, 0.15);
+        }
+
+        .risk-card:hover::before {
+            left: 100%;
+        }
+
+        .risk-title {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .risk-points {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .risk-points li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .risk-points li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(255, 215, 0, 0.05) 100%);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .contact-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            background: rgba(0, 217, 255, 0.05);
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            align-self: flex-start;
+            background: linear-gradient(135deg, var(--accent-gold), #ffed4e);
+            color: var(--bg-primary);
+            border: none;
+        }
+
+        .btn-submit:hover {
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                gap: 1rem;
+                flex-direction: column;
+            }
+
+            .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                border-bottom: 1px solid var(--border-color);
+                padding: 1rem;
+                z-index: 99;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-container {
+                flex-direction: column;
+            }
+
+            .flow-step::after {
+                right: auto;
+                content: '↓';
+                top: 90px;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* Scroll Animation Trigger */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: var(--transition);
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">FTCC</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#technologies">Technologies</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Protecting the Financial Ecosystem</h1>
+            <p class="hero-subtitle">From Onboarding to Governance</p>
+            <p class="hero-subtitle">End-to-end FinTech crime prevention, AML compliance, and risk management for banks, fintechs, NBFCs, and crypto platforms.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-arrow-right"></i> Explore Services
+                </button>
+                <button class="btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-phone"></i> Get a Consultation
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <p class="section-subtitle">Comprehensive crime prevention and compliance solutions tailored to your organization</p>
+        
+        <div class="services-grid">
+            <div class="service-card scroll-fade">
+                <div class="service-icon"><i class="fas fa-id-card"></i></div>
+                <h3>Customer Onboarding & KYC</h3>
+                <p class="service-description">Streamlined identity verification and customer risk profiling</p>
+                <div class="service-deliverables">
+                    <strong>Deliverables:</strong> CIP, KYC verification (Individual/Corporate), EDD, Sanctions & PEP screening, Risk categorization, Onboarding SOPs
+                </div>
+            </div>
+
+            <div class="service-card scroll-fade">
+                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Underwriting & Fraud Risk</h3>
+                <p class="service-description">Advanced credit and fraud risk evaluation with AI/ML analytics</p>
+                <div class="service-deliverables">
+                    <strong>Deliverables:</strong> Credit risk assessment, Behavioral analytics, Device fingerprinting, AI/ML fraud scoring, Synthetic identity prevention
+                </div>
+            </div>
+
+            <div class="service-card scroll-fade">
+                <div class="service-icon"><i class="fas fa-eye"></i></div>
+                <h3>Transaction Monitoring</h3>
+                <p class="service-description">Real-time surveillance and AML alert management</p>
+                <div class="service-deliverables">
+                    <strong>Deliverables:</strong> Real-time monitoring, Geo anomalies detection, Layering & smurfing analysis, SAR/STR preparation, AML alert management
+                </div>
+            </div>
+
+            <div class="service-card scroll-fade">
+                <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>AML Compliance Framework</h3>
+                <p class="service-description">Regulatory alignment and governance structure setup</p>
+                <div class="service-deliverables">
+                    <strong>Deliverables:</strong> AML & CFT policy, RBI/FIU-IND/FATF alignment, CDD/EDD protocols, STR/CTR reporting, Compliance officer setup, AML training
+                </div>
+            </div>
+
+            <div class="service-card scroll-fade">
+                <div class="service-icon"><i class="fas fa-thermometer"></i></div>
+                <h3>Enterprise Risk Assessment</h3>
+                <p class="service-description">Comprehensive organizational risk evaluation and testing</p>
+                <div class="service-deliverables">
+                    <strong>Deliverables:</strong> Operational risk, Fraud risk, Compliance & reputational risk, Risk heat maps, Control testing, Mitigation roadmap
+                </div>
+            </div>
+
+            <div class="service-card scroll-fade">
+                <div class="service-icon"><i class="fas fa-cogs"></i></div>
+                <h3>Operations & Governance</h3>
+                <p class="service-description">Scalable case management and operational excellence</p>
+                <div class="service-deliverables">
+                    <strong>Deliverables:</strong> Case management, SLA governance, MIS dashboards, Audit & QA, RPA & workflow automation
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Flow Section -->
+    <section id="process" class="process-flow">
+        <h2>End-to-End Process Flow</h2>
+        <p class="section-subtitle">Our comprehensive consulting workflow ensures complete financial crime prevention coverage</p>
+        
+        <div class="flow-container">
+            <div class="flow-step scroll-fade">
+                <div class="flow-number">1</div>
+                <div class="flow-label">Customer Onboarding</div>
+            </div>
+            <div class="flow-step scroll-fade">
+                <div class="flow-number">2</div>
+                <div class="flow-label">KYC & Identity</div>
+            </div>
+            <div class="flow-step scroll-fade">
+                <div class="flow-number">3</div>
+                <div class="flow-label">Risk Profiling</div>
+            </div>
+            <div class="flow-step scroll-fade">
+                <div class="flow-number">4</div>
+                <div class="flow-label">Fraud Assessment</div>
+            </div>
+            <div class="flow-step scroll-fade">
+                <div class="flow-number">5</div>
+                <div class="flow-label">Transaction Monitor</div>
+            </div>
+            <div class="flow-step scroll-fade">
+                <div class="flow-number">6</div>
+                <div class="flow-label">AML Compliance</div>
+            </div>
+            <div class="flow-step scroll-fade">
+                <div class="flow-number">7</div>
+                <div class="flow-label">Risk Assessment</div>
+            </div>
+            <div class="flow-step scroll-fade">
+                <div class="flow-number">8</div>
+                <div class="flow-label">Investigation</div>
+            </div>
+            <div class="flow-step scroll-fade">
+                <div class="flow-number">9</div>
+                <div class="flow-label">Operations Mgmt</div>
+            </div>
+            <div class="flow-step scroll-fade">
+                <div class="flow-number">10</div>
+                <div class="flow-label">Continuous Monitor</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="technologies" class="technologies">
+        <h2>Technology Stack</h2>
+        <p class="section-subtitle">Industry-leading tools and platforms powering our solutions</p>
+        
+        <div class="tech-categories">
+            <div class="tech-category scroll-fade">
+                <h4><i class="fas fa-fingerprint"></i> KYC Verification</h4>
+                <div class="tech-items">
+                    <span class="tech-chip">Onfido</span>
+                    <span class="tech-chip">Jumio</span>
+                    <span class="tech-chip">HyperVerge</span>
+                </div>
+            </div>
+
+            <div class="tech-category scroll-fade">
+                <h4><i class="fas fa-search"></i> AML Monitoring</h4>
+                <div class="tech-items">
+                    <span class="tech-chip">Actimize</span>
+                    <span class="tech-chip">SAS AML</span>
+                    <span class="tech-chip">Oracle FCCM</span>
+                </div>
+            </div>
+
+            <div class="tech-category scroll-fade">
+                <h4><i class="fas fa-lock"></i> Fraud Detection</h4>
+                <div class="tech-items">
+                    <span class="tech-chip">Feedzai</span>
+                    <span class="tech-chip">Featurespace</span>
+                    <span class="tech-chip">TensorFlow</span>
+                </div>
+            </div>
+
+            <div class="tech-category scroll-fade">
+                <h4><i class="fas fa-folder-open"></i> Case Management</h4>
+                <div class="tech-items">
+                    <span class="tech-chip">ServiceNow</span>
+                    <span class="tech-chip">Salesforce</span>
+                    <span class="tech-chip">Jira</span>
+                </div>
+            </div>
+
+            <div class="tech-category scroll-fade">
+                <h4><i class="fas fa-chart-bar"></i> Analytics & BI</h4>
+                <div class="tech-items">
+                    <span class="tech-chip">Power BI</span>
+                    <span class="tech-chip">Tableau</span>
+                    <span class="tech-chip">Looker</span>
+                </div>
+            </div>
+
+            <div class="tech-category scroll-fade">
+                <h4><i class="fas fa-brain"></i> AI & Machine Learning</h4>
+                <div class="tech-items">
+                    <span class="tech-chip">Python</span>
+                    <span class="tech-chip">TensorFlow</span>
+                    <span class="tech-chip">PyTorch</span>
+                </div>
+            </div>
+
+            <div class="tech-category scroll-fade">
+                <h4><i class="fas fa-shield"></i> Sanctions Screening</h4>
+                <div class="tech-items">
+                    <span class="tech-chip">World-Check</span>
+                    <span class="tech-chip">Dow Jones</span>
+                    <span class="tech-chip">Bloomberg</span>
+                </div>
+            </div>
+
+            <div class="tech-category scroll-fade">
+                <h4><i class="fas fa-robot"></i> Automation & RPA</h4>
+                <div class="tech-items">
+                    <span class="tech-chip">UiPath</span>
+                    <span class="tech-chip">Blue Prism</span>
+                    <span class="tech-chip">Automation Anywhere</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us">
+        <h2>Why Choose Us</h2>
+        <p class="section-subtitle">Proven expertise that delivers measurable business value</p>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card scroll-fade">
+                <div class="benefit-icon"><i class="fas fa-chart-pie"></i></div>
+                <h4>Reduced Fraud Losses</h4>
+                <p class="benefit-text">Advanced detection reduces fraud incidents by up to 70%</p>
+            </div>
+
+            <div class="benefit-card scroll-fade">
+                <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                <h4>Faster Onboarding</h4>
+                <p class="benefit-text">90% faster customer verification with seamless UX</p>
+            </div>
+
+            <div class="benefit-card scroll-fade">
+                <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                <h4>Full Regulatory Compliance</h4>
+                <p class="benefit-text">RBI, FIU-IND, and FATF alignment guaranteed</p>
+            </div>
+
+            <div class="benefit-card scroll-fade">
+                <div class="benefit-icon"><i class="fas fa-filter"></i></div>
+                <h4>Reduced False Positives</h4>
+                <p class="benefit-text">AI-driven accuracy cuts false alerts by 85%</p>
+            </div>
+
+            <div class="benefit-card scroll-fade">
+                <div class="benefit-icon"><i class="fas fa-clipboard-check"></i></div>
+                <h4>Audit Readiness</h4>
+                <p class="benefit-text">Complete documentation and audit trails included</p>
+            </div>
+
+            <div class="benefit-card scroll-fade">
+                <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                <h4>Enhanced Trust</h4>
+                <p class="benefit-text">Build customer confidence with transparent processes</p>
+            </div>
+
+            <div class="benefit-card scroll-fade">
+                <div class="benefit-icon"><i class="fas fa-expand"></i></div>
+                <h4>Scalable Frameworks</h4>
+                <p class="benefit-text">Governance solutions grow with your organization</p>
+            </div>
+
+            <div class="benefit-card scroll-fade">
+                <div class="benefit-icon"><i class="fas fa-headset"></i></div>
+                <h4>24/7 Expert Support</h4>
+                <p class="benefit-text">Dedicated team for ongoing optimization</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Categories Section -->
+    <section id="risk" class="risk-categories">
+        <h2>Risk Categories We Manage</h2>
+        <p class="section-subtitle">Comprehensive coverage across all dimensions of financial crime</p>
+        
+        <div class="risk-grid">
+            <div class="risk-card scroll-fade">
+                <div class="risk-title">
+                    <i class="fas fa-cog"></i> Operational Risk
+                </div>
+                <ul class="risk-points">
+                    <li>Process failures and system outages</li>
+                    <li>Internal control gaps</li>
+                    <li>Third-party vendor risks</li>
+                    <li>Business continuity planning</li>
+                    <li>Data security & privacy</li>
+                </ul>
+            </div>
+
+            <div class="risk-card scroll-fade">
+                <div class="risk-title">
+                    <i class="fas fa-exclamation-triangle"></i> Fraud Risk
+                </div>
+                <ul class="risk-points">
+                    <li>Account takeover (ATO)</li>
+                    <li>Identity theft & spoofing</li>
+                    <li>Synthetic identity fraud</li>
+                    <li>Payment fraud & chargebacks</li>
+                    <li>Insider threats</li>
+                </ul>
+            </div>
+
+            <div class="risk-card scroll-fade">
+                <div class="risk-title">
+                    <i class="fas fa-gavel"></i> Compliance Risk
+                </div>
+                <ul class="risk-points">
+                    <li>Regulatory non-compliance</li>
+                    <li>Sanctions violations</li>
+                    <li>AML/CFT breaches</li>
+                    <li>Know Your Customer gaps</li>
+                    <li>Money laundering exposure</li>
+                </ul>
+            </div>
+
+            <div class="risk-card scroll-fade">
+                <div class="risk-title">
+                    <i class="fas fa-star"></i> Reputational Risk
+                </div>
+                <ul class="risk-points">
+                    <li>Regulatory sanctions & fines</li>
+                    <li>Media & public relations</li>
+                    <li>Customer trust erosion</li>
+                    <li>Partnership impact</li>
+                    <li>Brand value degradation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Ready to Fortify Your Financial Operations?</h2>
+        <p class="section-subtitle">Let's discuss your crime prevention and compliance challenges</p>
+        
+        <div class="contact-content">
+            <div class="contact-text scroll-fade">
+                <h3>Get in Touch</h3>
+                <p>Our expert consultants are ready to help you build a comprehensive financial crime prevention and compliance program. Whether you're a bank, fintech, NBFC, or crypto platform, we have tailored solutions for your unique challenges.</p>
+                <br>
+                <p><strong>What happens next:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                    <li style="margin-bottom: 0.8rem;">We'll schedule a 30-minute discovery call</li>
+                    <li style="margin-bottom: 0.8rem;">Discuss your current crime prevention setup</li>
+                    <li style="margin-bottom: 0.8rem;">Identify compliance gaps and opportunities</li>
+                    <li>Present a customized roadmap</li>
+                </ul>
+            </div>
+
+            <form class="contact-form scroll-fade" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company Name *</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service Interested In *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service...</option>
+                        <option value="kyc">Customer Onboarding & KYC</option>
+                        <option value="underwriting">Underwriting & Fraud Risk</option>
+                        <option value="transaction">Transaction Monitoring</option>
+                        <option value="aml">AML Compliance Framework</option>
+                        <option value="risk">Enterprise Risk Assessment</option>
+                        <option value="operations">Operations & Governance</option>
+                        <option value="other">Other / Multiple Services</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-submit">
+                    <i class="fas fa-paper-plane"></i> Send Inquiry
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 FinTech Crime Consultancy. All rights reserved. | Premium Financial Crime Prevention & AML Compliance Solutions</p>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Fade Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll-fade elements
+        document.querySelectorAll('.scroll-fade').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Form Submission Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value,
+                company: document.getElementById('company').value,
+                email: document.getElementById('email').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Log to console (in production, this would send to a backend)
+            console.log('Contact Form Submitted:', formData);
+
+            // Show success message
+            alert('Thank you for your inquiry! We will contact you shortly.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll-triggered animations for service cards on hover
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 10);
+            });
+        });
+
+        // Initialize page on load
+        window.addEventListener('load', () => {
+            console.log('FinTech Crime Consultancy Website Loaded');
+        });
+    </script>
+</body>
+</html>
